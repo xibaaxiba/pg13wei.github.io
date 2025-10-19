@@ -13,6 +13,16 @@ const posts = [
     coverFile: 'Back.jpg',
     cover: placeholder('hz-sunset'),
   },
+  {
+    id: 'hello-wei',
+    title: '你好，蔚：这是第一篇示例文章',
+    excerpt: '用一篇短文，测试首页列表、详情页面、搜索与筛选是否正常工作。',
+    date: new Date().toISOString().slice(0,10),
+    category: '随笔',
+    tags: ['起步', '示例'],
+    coverFile: 'Back.jpg',
+    cover: placeholder('hello-wei'),
+  },
 //   {
 //     id: 'ningbo-night',
 //     title: '宁波古城夜色',

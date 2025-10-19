@@ -13,13 +13,24 @@
     <a href="./" class="mt-4 inline-block px-4 py-2 rounded bg-slate-900 text-white">回到首页</a>
   </main>
   <script>
-    // GitHub Pages SPA-style redirect support (for project pages)
+    // Redirect deep links for project pages: /repo/pages/post.html?... to correct path
     (function() {
-      const l = window.location;
-      if (l.search) {
-        const q = new URLSearchParams(l.search);
-        const p = q.get('p');
-        if (p) l.replace(l.origin + l.pathname.replace('404.html','') + p);
+      var l = window.location;
+      // If someone hit 404 under project page, try remove leading repo duplication or wrong base
+      // Example: https://user.github.io/repo/repo/pages/... or missing repo
+      var path = l.pathname;
+      var repo = path.split('/')[1];
+      // If /repo/repo/... collapse to single
+      if (path.indexOf('/'+repo+'/'+repo+'/') === 0) {
+        var fixed = '/' + repo + '/' + path.substring(("/"+repo+"/"+repo+"/").length);
+        l.replace(fixed + l.search + l.hash);
+        return;
+      }
+      // If direct deep link without repo under user site, try prefix repo from 404 path
+      var q = new URLSearchParams(l.search);
+      var p = q.get('p');
+      if (p) {
+        l.replace('/' + repo + '/' + p);
       }
     })();
   </script>

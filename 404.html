@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>页面未找到 · 马草原 の Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full grid place-items-center bg-slate-50 text-slate-800">
+  <main class="text-center p-6">
+    <h1 class="text-3xl font-bold">404</h1>
+    <p class="mt-2">页面不存在，返回首页。</p>
+    <a href="./" class="mt-4 inline-block px-4 py-2 rounded bg-slate-900 text-white">回到首页</a>
+  </main>
+  <script>
+    // GitHub Pages SPA-style redirect support (for project pages)
+    (function() {
+      const l = window.location;
+      if (l.search) {
+        const q = new URLSearchParams(l.search);
+        const p = q.get('p');
+        if (p) l.replace(l.origin + l.pathname.replace('404.html','') + p);
+      }
+    })();
+  </script>
+  
+</body>
+</html>
+
+

@@ -1,0 +1,9 @@
+/* Tailwind helpers */
+.nav-link { @apply text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-300 transition; }
+.icon-btn { @apply p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition; }
+
+/* Line clamp utilities for browsers without plugin */
+.line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+

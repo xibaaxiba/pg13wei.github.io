@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>马草原 の Blog</title>
+  <meta name="description" content="个人博客｜记录生活与学习" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>✍️</text></svg>">
+  <script>
+    (() => {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? saved === 'dark' : prefersDark;
+      if (isDark) document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="h-full bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/95 dark:bg-slate-900/90 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+      <a href="./" class="flex items-center gap-2 font-semibold tracking-wide">
+        <span class="text-brand-600 dark:text-brand-300">马草原</span>
+        <span class="text-slate-400">の</span>
+        <span>Blog</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="nav-link" href="./">首页</a>
+        <a class="nav-link" href="pages/categories.html">分类</a>
+        <a class="nav-link" href="pages/archives.html">归档</a>
+        <a class="nav-link" href="pages/tags.html">标签</a>
+        <a class="nav-link" href="pages/links.html">友链</a>
+        <a class="nav-link" href="pages/about.html">关于</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="searchBtn" class="icon-btn" title="搜索" aria-label="搜索">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button id="themeToggle" class="icon-btn" title="切换主题" aria-label="切换主题">
+          <svg id="sunIcon" class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.5 6.5-1.5-1.5M6 6 4.5 4.5m13 0L16.5 6M6 18l-1.5 1.5"/></svg>
+          <svg id="moonIcon" class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button id="menuBtn" class="icon-btn md:hidden" aria-label="打开菜单">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobileNav" class="md:hidden hidden border-t border-slate-200/60 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <a class="nav-link" href="./">首页</a>
+        <a class="nav-link" href="pages/categories.html">分类</a>
+        <a class="nav-link" href="pages/archives.html">归档</a>
+        <a class="nav-link" href="pages/tags.html">标签</a>
+        <a class="nav-link" href="pages/links.html">友链</a>
+        <a class="nav-link" href="pages/about.html">关于</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="relative">
+    <div id="heroBanner" class="h-[48vh] min-h-[340px] bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=60')] bg-cover bg-center">
+      <div class="h-full w-full bg-slate-900/60 flex items-center justify-center text-center px-4">
+        <div>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">马草原 の Blog</h1>
+          <p class="mt-3 text-slate-200">If you want to tame a person, will risk tears.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+    <div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-4">
+      <span class="inline-block w-2 h-2 rounded-full bg-rose-500"></span>
+      <span>最新动态</span>
+    </div>
+    <div class="flex flex-wrap items-center gap-3 mb-6">
+      <input id="searchInput" type="search" placeholder="搜索文章..." class="w-full sm:w-80 px-3 py-2 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+      <select id="categoryFilter" class="px-3 py-2 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none">
+        <option value="">所有分类</option>
+      </select>
+      <select id="tagFilter" class="px-3 py-2 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none">
+        <option value="">所有标签</option>
+      </select>
+    </div>
+    <div id="postsGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    <div class="mt-8 flex items-center justify-center gap-3">
+      <button id="prevPage" class="px-3 py-1.5 rounded-md border border-slate-300 dark:border-slate-700 disabled:opacity-40">上一页</button>
+      <span id="pageInfo" class="text-sm text-slate-500 dark:text-slate-400"></span>
+      <button id="nextPage" class="px-3 py-1.5 rounded-md border border-slate-300 dark:border-slate-700 disabled:opacity-40">下一页</button>
+    </div>
+  </main>
+
+  <button id="toTop" class="fixed bottom-6 right-6 hidden p-3 rounded-full bg-slate-900/80 text-white shadow-lg ring-1 ring-black/5 hover:bg-slate-900 transition">TOP</button>
+
+  <dialog id="searchDialog" class="backdrop:bg-black/50 rounded-xl p-0 w-[90vw] max-w-2xl">
+    <form method="dialog" class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center gap-3">
+      <input id="dialogSearch" type="search" placeholder="输入关键词回车..." class="flex-1 px-3 py-2 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none" />
+      <button class="px-3 py-2 text-sm">关闭</button>
+    </form>
+    <div id="searchResults" class="max-h-[60vh] overflow-auto p-4 space-y-3"></div>
+  </dialog>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
+
+

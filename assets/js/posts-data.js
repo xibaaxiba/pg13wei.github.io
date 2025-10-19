@@ -22,6 +22,7 @@ const posts = [
     tags: ['起步', '示例'],
     coverFile: 'Back.jpg',
     cover: placeholder('hello-wei'),
+    contentFile: 'README.html',
   },
 //   {
 //     id: 'ningbo-night',

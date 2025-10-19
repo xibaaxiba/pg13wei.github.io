@@ -16,6 +16,11 @@ function unique(list) {
   return Array.from(new Set(list)).filter(Boolean);
 }
 
+function getBasePath() {
+  const path = window.location.pathname;
+  return path.endsWith('/') ? path : path.replace(/[^/]*$/, '');
+}
+
 // Build URL for image inside pics/; if fileName missing, return empty string
 function picUrl(fileName) {
   if (!fileName) return '';
@@ -145,7 +150,7 @@ function render() {
 }
 
 function cardTemplate(p) {
-  const url = `pages/post.html?id=${encodeURIComponent(p.id)}`;
+  const url = `${getBasePath()}pages/post.html?id=${encodeURIComponent(p.id)}`;
   const local = picUrl(p.coverFile);
   const fallback = p.cover || '';
   const img = local || fallback;
